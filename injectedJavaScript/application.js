@@ -9,7 +9,7 @@ var content = (penColor, backgroundColor, dataURL) => `
     var height = bodyHeight;
 
     var sizeSignaturePad = function () {
-      var devicePixelRatio = 1; /*window.devicePixelRatio || 1;*/
+      var devicePixelRatio = 2; /*window.devicePixelRatio || 2;*/
       var canvasWidth = width * devicePixelRatio;
       var canvasHeight = height * devicePixelRatio;
       signaturePadCanvas.width = canvasWidth;
@@ -24,7 +24,7 @@ var content = (penColor, backgroundColor, dataURL) => `
     var enableSignaturePadFunctionality = function () {
       var signaturePad = new SignaturePad(signaturePadCanvas, {
         penColor: '${penColor || 'black'}',
-        backgroundColor: '${backgroundColor || 'white'}',
+        backgroundColor: '${backgroundColor || 'transparent'}',
         onEnd: function() { finishedStroke(signaturePad.toDataURL()); }
       });
       /* signaturePad.translateMouseCoordinates = function (point) {
